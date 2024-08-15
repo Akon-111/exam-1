@@ -1,0 +1,1 @@
+{"log_level":"debug","grpc_port":"8080","environment":"development","db_url":"postgres://admin:supersecret@10.10.10.1:5432/exam-db","pod_ip":"10.233.74.76"}

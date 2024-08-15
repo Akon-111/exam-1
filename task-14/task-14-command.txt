@@ -1,0 +1,1 @@
+kubectl create ing one-deploy --rule aadkhamov.nvrbckdown.uz/=flask-app:80 --dry-run=client -o yaml

@@ -1,0 +1,1 @@
+kubectl get endpoints -o yaml -n exam-adxamov

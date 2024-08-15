@@ -1,0 +1,115 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2024-08-14T15:26:35Z"
+    creationTimestamp: "2024-08-14T15:26:35Z"
+    labels:
+      app: flask-app
+    name: flask-app
+    namespace: exam-adxamov
+    resourceVersion: "7022769"
+    uid: d1445618-fb6a-4f7b-84c9-4f4076f06289
+  subsets:
+  - addresses:
+    - ip: 10.233.97.185
+      nodeName: node5
+      targetRef:
+        kind: Pod
+        name: flask-app-6b9b47b79-sgz8b
+        namespace: exam-adxamov
+        uid: 8ecf42f4-dc00-4ff9-80c5-bf94c50cb391
+    ports:
+    - port: 5000
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2024-08-14T15:37:50Z"
+    creationTimestamp: "2024-08-14T15:37:50Z"
+    labels:
+      app: flask-app
+    name: flask-clusterip
+    namespace: exam-adxamov
+    resourceVersion: "7024850"
+    uid: cf2ef38a-1153-4443-85d2-205a87ec0464
+  subsets:
+  - addresses:
+    - ip: 10.233.97.185
+      nodeName: node5
+      targetRef:
+        kind: Pod
+        name: flask-app-6b9b47b79-sgz8b
+        namespace: exam-adxamov
+        uid: 8ecf42f4-dc00-4ff9-80c5-bf94c50cb391
+    ports:
+    - port: 5000
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2024-08-14T16:00:17Z"
+    creationTimestamp: "2024-08-14T16:00:17Z"
+    labels:
+      app: frontend-app
+    name: frontend-app
+    namespace: exam-adxamov
+    resourceVersion: "7029774"
+    uid: 865afd15-cb40-4d85-ab48-41448d888b53
+  subsets:
+  - addresses:
+    - ip: 10.233.75.48
+      nodeName: node2
+      targetRef:
+        kind: Pod
+        name: frontend-app-77db6798d7-fc5gv
+        namespace: exam-adxamov
+        uid: 8031a09a-a929-4a1f-9fbc-1d79d15e9bb0
+    ports:
+    - port: 80
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2024-08-14T16:47:11Z"
+    creationTimestamp: "2024-08-14T16:35:34Z"
+    labels:
+      app: one-deploy
+    name: one-deploy
+    namespace: exam-adxamov
+    resourceVersion: "7040307"
+    uid: 21b0377b-73cf-422c-b0c4-492ec962e9f4
+  subsets:
+  - addresses:
+    - ip: 10.233.74.76
+      nodeName: node4
+      targetRef:
+        kind: Pod
+        name: one-deploy-5f576d4cb4-b6skz
+        namespace: exam-adxamov
+        uid: 8bf20dac-b75b-4652-b213-be62ba4977b2
+    - ip: 10.233.75.115
+      nodeName: node6
+      targetRef:
+        kind: Pod
+        name: one-deploy-5f576d4cb4-fbh98
+        namespace: exam-adxamov
+        uid: a09c1ffb-0022-4509-9dad-f8caf18f0d69
+    - ip: 10.233.97.169
+      nodeName: node5
+      targetRef:
+        kind: Pod
+        name: one-deploy-5f576d4cb4-j6lp4
+        namespace: exam-adxamov
+        uid: a487065d-1411-4ad9-9ebb-797d3789be9c
+    ports:
+    - port: 80
+      protocol: TCP
+kind: List
+metadata:
+  resourceVersion: ""

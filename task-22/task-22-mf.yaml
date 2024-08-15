@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: one-deploy
+  name: one-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: one-deploy
+  template:
+    metadata:
+      labels:
+        app: one-deploy
+    spec:
+      containers:
+      - image: akrom111/exam-1:v1
+        name: one-deploy
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "128Mi"
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+        env:
+          - name: ENVIRONMENT
+            valueFrom:
+              configMapKeyRef:
+                name: info
+                key: env
+          - name: LOG_LEVEL
+            valueFrom:
+              configMapKeyRef:
+                name: info
+                key: log_leveI
+          - name: GRPC_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: info
+                key: grpc_port
+          - name: POD_ID
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: CPU
+            valueFrom:
+              resourceFieldRef:
+                containerName: one-deploy
+                resource: requests.cpu
+          - name: MEMORY
+            valueFrom:
+              resourceFieldRef:
+                containerName: one-deploy
+                resource: requests.memory
+        livenessProbe:
+          httpGet:
+            path: /config
+            port: 80  
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3

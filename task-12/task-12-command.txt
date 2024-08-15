@@ -1,0 +1,1 @@
+kubectl create deploy one-deploy --image akrom111/exam-1:v1 -n exam-adxamov --dry-run=client -o yaml

@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: one-deploy
+  name: one-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: one-deploy
+  template:
+    metadata:
+      labels:
+        app: one-deploy
+    spec:
+      containers:
+      - image: akrom111/exam-1:v1
+        name: one-deploy
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64M
+          limits:
+            cpu: 200m
+            memory: 128Mi
+        env:
+        - name: CPU
+          valueFrom:
+            resourceFieldRef:
+              containerName: one-deploy
+              resource: requests.cpu
+        - name: MEMORY
+          valueFrom:
+            resourceFieldRef:
+              containerName: one-deploy
+              resource: requests.memory
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: log_level
+        - name: GRPC_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: grpc_port
+        - name: DB_URI
+          valueFrom:
+            secretKeyRef:
+              name: database
+              key: DB_URI
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP

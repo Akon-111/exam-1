@@ -1,0 +1,5 @@
+NAME              ENDPOINTS                                           AGE
+flask-app         10.233.97.185:5000                                  82m
+flask-clusterip   10.233.97.185:5000                                  71m
+frontend-app      10.233.75.48:80                                     49m
+one-deploy        10.233.74.76:80,10.233.75.115:80,10.233.97.169:80   13m

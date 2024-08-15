@@ -1,0 +1,1 @@
+kubectl exec -it nginx1 -n exam-adxamov -- bash

@@ -1,0 +1,47 @@
+Name:             ping-cronjob-28727650
+Namespace:        exam-adxamov
+Selector:         batch.kubernetes.io/controller-uid=7843a28b-47ea-4b48-a2b7-1b66538a5b12
+Labels:           batch.kubernetes.io/controller-uid=7843a28b-47ea-4b48-a2b7-1b66538a5b12
+                  batch.kubernetes.io/job-name=ping-cronjob-28727650
+                  controller-uid=7843a28b-47ea-4b48-a2b7-1b66538a5b12
+                  job-name=ping-cronjob-28727650
+Annotations:      batch.kubernetes.io/cronjob-scheduled-timestamp: 2024-08-14T18:10:00Z
+Controlled By:    CronJob/ping-cronjob
+Parallelism:      1
+Completions:      1
+Completion Mode:  NonIndexed
+Suspend:          false
+Backoff Limit:    6
+Start Time:       Wed, 14 Aug 2024 23:10:00 +0500
+Completed At:     Wed, 14 Aug 2024 23:10:05 +0500
+Duration:         5s
+Pods Statuses:    0 Active (0 Ready) / 1 Succeeded / 0 Failed
+Pod Template:
+  Labels:  batch.kubernetes.io/controller-uid=7843a28b-47ea-4b48-a2b7-1b66538a5b12
+           batch.kubernetes.io/job-name=ping-cronjob-28727650
+           controller-uid=7843a28b-47ea-4b48-a2b7-1b66538a5b12
+           job-name=ping-cronjob-28727650
+  Containers:
+   ping-container:
+    Image:      busybox
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      /bin/sh
+      -c
+      for i in {1..4}; do
+        echo "Pinging 8.8.8.8 (attempt $i)...";
+        ping -c 1 8.8.8.8;
+        sleep 1;
+      done
+      
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Events:
+  Type    Reason            Age   From            Message
+  ----    ------            ----  ----            -------
+  Normal  SuccessfulCreate  69s   job-controller  Created pod: ping-cronjob-28727650-54h4l
+  Normal  Completed         64s   job-controller  Job completed

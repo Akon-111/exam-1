@@ -1,0 +1,1 @@
+kubectl scale deployment one-deploy --replicas 3 -n exam-adxamov

@@ -1,0 +1,2 @@
+kubectl create deploy flask-app --image nvrbckdown/flask-app:v1 -n exam-adxamov
+kubectl port-forward pods/flask-app-6b9b47b79-sgz8b 8080:5000 -n exam-adxamov

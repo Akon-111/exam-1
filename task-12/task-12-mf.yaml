@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: one-deploy
+  name: one-deploy
+  namespace: exam-adxamov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: one-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: one-deploy
+    spec:
+      containers:
+      - image: akrom111/exam-1:v1
+        name: exam-1
+        env:
+          - name: ENVIRONMENT
+            valueFrom:
+              configMapKeyRef:
+                name: info
+                key: env
+          - name: LOG_LEVEL
+            valueFrom:
+              configMapKeyRef:
+                name: info
+                key: log_leveI
+          - name: GRPC_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: info
+                key: grpc_port
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP

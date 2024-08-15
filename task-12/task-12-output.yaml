@@ -1,0 +1,4 @@
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+flask-app      1/1     1            1           77m
+frontend-app   1/1     1            1           41m
+one-deploy     1/1     1            1           83s
